@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Manutenção</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Agendamento de Manutenção</h1>
+        <p>Web Service REST - Spring Boot</p>
+    </header>
+
+    <section class="card">
+        <h2 id="form-title">Novo agendamento</h2>
+
+        <form id="form-agendamento">
+            <input type="hidden" id="id">
+
+            <div class="grid">
+                <label>
+                    Cliente
+                    <input type="text" id="cliente" required>
+                </label>
+
+                <label>
+                    Telefone
+                    <input type="text" id="telefone" required>
+                </label>
+
+                <label>
+                    Tipo de manutenção
+                    <select id="tipoManutencao" required>
+                        <option value="">Selecione</option>
+                        <option>Manutenção preventiva</option>
+                        <option>Manutenção corretiva</option>
+                        <option>Formatação</option>
+                        <option>Limpeza</option>
+                        <option>Troca de componente</option>
+                        <option>Instalação de software</option>
+                    </select>
+                </label>
+
+                <label>
+                    Data
+                    <input type="date" id="data" required>
+                </label>
+
+                <label>
+                    Horário
+                    <input type="time" id="horario" required>
+                </label>
+
+                <label>
+                    Status
+                    <select id="status" required>
+                        <option>Agendado</option>
+                        <option>Em andamento</option>
+                        <option>Concluído</option>
+                        <option>Cancelado</option>
+                    </select>
+                </label>
+            </div>
+
+            <label>
+                Descrição
+                <textarea id="descricao" rows="3" placeholder="Descreva o problema ou serviço..."></textarea>
+            </label>
+
+            <div class="buttons">
+                <button type="submit" id="btn-salvar">Cadastrar</button>
+                <button type="button" class="secondary" onclick="limparFormulario()">Limpar</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="card">
+        <div class="list-header">
+            <h2>Agendamentos</h2>
+            <button onclick="carregarAgendamentos()">Atualizar</button>
+        </div>
+
+        <div id="mensagem"></div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cliente</th>
+                    <th>Telefone</th>
+                    <th>Manutenção</th>
+                    <th>Data</th>
+                    <th>Horário</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody id="tabela-agendamentos"></tbody>
+            </table>
+        </div>
+    </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
